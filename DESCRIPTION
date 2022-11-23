@@ -1,12 +1,20 @@
 Package: permutatedChacko
-Title: What the Package Does (One Line, Title Case)
+Title: Chacko test for order-restriction with permutation
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R:
+    c(
+        person(
+            given = "Waldir", family = "Leoncio",
+            email = "w.l.netto@medisin.uio.no", role = c("aut", "cre"),
+            comment = c(ORCID = "0000-0002-6719-6162")
+        ),
+        person(
+            given = "Graeme", family = "Ruxton", role = "aut"
+        )
+    )
+Description: Implements Ruxton's suggestion for a modified version of the Chacko
+    test for order-restruction which includes a permutation test.
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
