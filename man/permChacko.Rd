@@ -14,6 +14,15 @@ permChacko(x, verbose = FALSE)
 \description{
 The Chacko test for order-restriction with permutation test
 }
+\examples{
+ruxton22_12_07 <- c(6, 8, 4, 7, 3)
+chacko66_3 <- c(10L, 16L, 14L, 12L, 18L)
+chacko66_5 <- c(12L, 14L, 18L, 16L, 22L, 20L, 18L, 24L, 26L, 30L)
+
+permChacko(ruxton22_12_07)
+permChacko(chacko66_3)
+permChacko(chacko66_5)
+}
 \references{
 Chacko, V. J. (1963). Testing homogeneity against ordered alternatives. The
 Annals of Mathematical Statistics, 945-956.
