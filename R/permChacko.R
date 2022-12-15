@@ -20,7 +20,7 @@
 permChacko <- function(x, verbose = FALSE) {
   # Ordering and reducing vector
   x_t <- cbind("x" = x, "t" = x ^ 0L)
-  while (nrow(x_t) > 1L && any(diff(x_t[, "x"]) < 0L)) {
+  while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {
     if (verbose) {
       message("Reordering vector")
       print(x_t)
@@ -90,4 +90,8 @@ orderingProcess <- function(x_t, verbose = FALSE) {
     i <- i + 1L
   }
   return(cbind("x" = x, "t" = t))
+}
+
+isMonotoneIncreasing <- function(x) {
+  any(diff(x) < 0L)
 }
