@@ -10,6 +10,10 @@ Authors@R:
         ),
         person(
             given = "Graeme", family = "Ruxton", role = "aut"
+        ),
+        person(
+            given = "Morten Wang", family = "Fagerland", role = "aut",
+            email = "morten.fagerland@medisin.uio.no"
         )
     )
 Description: Implements Ruxton's suggestion for a modified version of the Chacko
