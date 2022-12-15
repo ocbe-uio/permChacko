@@ -18,21 +18,8 @@
 #' permChacko(chacko66_5)
 #' @export
 permChacko <- function(x, verbose = FALSE) {
-  # TODO: implement original algo following Graeme's notes:
-  #
-  # We begin with a list of k values x1,…xk with associated weights t1 = t2  =
-  # …. = tk = 1.
+  # Ordering and reducing vector
   x_t <- cbind("x" = x, "t" = x ^ 0L)
-
-  # If for any 1≤i ≤ (k-1), we have that xk > xk+1 then we replace both values
-  # xk and xk+1 by a single value which is their weighted average (using the
-  # weights tk and tk+1),
-  # this new value takes the combined weight of the two
-  # values it replaces tk + tk+1. The list is now one shorter, so k becomes k-1
-  #
-  # We repeat this process until k = 1 or we have a monotone increasing sequence
-  # of numbers.
-
   while (nrow(x_t) > 1L && any(diff(x_t[, "x"]) < 0L)) {
     if (verbose) {
       message("Reordering vector")
@@ -42,10 +29,6 @@ permChacko <- function(x, verbose = FALSE) {
   }
 
   return(x_t)
-  #
-  # This procedure allows me to recreate the two ordering process examples shown
-  # on pages 187 and 189 of Chacko (1966).
-  #
   # Notice that Chacko was entirely comfortable with this ordering process
   # ending with a single value. If you look at their table on page 188 then he
   # suggests that under the null hypothesis – if you start with a list of 5
