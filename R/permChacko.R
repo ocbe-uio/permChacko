@@ -16,7 +16,7 @@ permChacko <- function(x, verbose = FALSE) {
   # weights tk and tk+1),
   # this new value takes the combined weight of the two
   # values it replaces tk + tk+1. The list is now one shorter, so k becomes k-1
-
+  #
   # We repeat this process until k = 1 or we have a monotone increasing sequence
   # of numbers.
 
@@ -70,7 +70,7 @@ permChacko <- function(x, verbose = FALSE) {
   # statistic equal to or greater than the one we originally observed.
 }
 
-orderingProcess <- function(x_t, verbose = verbose) {
+orderingProcess <- function(x_t, verbose = FALSE) {
   x <- x_t[, "x"]
   t <- x_t[, "t"]
   i <- 1L
