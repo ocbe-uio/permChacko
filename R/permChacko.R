@@ -1,3 +1,6 @@
+#' @title The Chacko test for order-restriction with permutation test
+#' @param x vector of numeric values
+#' @export
 permChacko <- function(x) {
   # TODO: implement original algo following Graeme's notes:
   #
