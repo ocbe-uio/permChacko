@@ -1,8 +1,13 @@
 #' @title The Chacko test for order-restriction with permutation test
 #' @param x vector of numeric values
+#' @param verbose if \code{TRUE}, prints intermediate messages and output
 #' @references
+#' Chacko, V. J. (1963). Testing homogeneity against ordered alternatives. The
+#' Annals of Mathematical Statistics, 945-956.
+#'
 #' Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
+#' @importFrom stats weighted.mean
 #' @export
 permChacko <- function(x, verbose = FALSE) {
   # TODO: implement original algo following Graeme's notes:

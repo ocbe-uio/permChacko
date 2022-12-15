@@ -4,11 +4,20 @@
 \alias{permChacko}
 \title{The Chacko test for order-restriction with permutation test}
 \usage{
-permChacko(x)
+permChacko(x, verbose = FALSE)
 }
 \arguments{
 \item{x}{vector of numeric values}
+
+\item{verbose}{if \code{TRUE}, prints intermediate messages and output}
 }
 \description{
 The Chacko test for order-restriction with permutation test
+}
+\references{
+Chacko, V. J. (1963). Testing homogeneity against ordered alternatives. The
+Annals of Mathematical Statistics, 945-956.
+
+Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
+Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
 }
