@@ -19,6 +19,7 @@
 #' @export
 permChacko <- function(x, verbose = FALSE) {
   # Ordering and reducing vector
+  original_x <- x
   x_t <- cbind("x" = x, "t" = x ^ 0L)
   while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {
     if (verbose) {
@@ -27,8 +28,14 @@ permChacko <- function(x, verbose = FALSE) {
     }
     x_t <- orderingProcess(x_t, verbose = verbose)
   }
+  if (verbose) {
+    message("Final vector")
+    print(x_t)
+  }
+  chisq_bar <- chackoStatistic(x_t, sum(original_x), length(original_x))
+  return(chisq_bar)
 
-  return(x_t)
+
   # Notice that Chacko was entirely comfortable with this ordering process
   # ending with a single value. If you look at their table on page 188 then he
   # suggests that under the null hypothesis – if you start with a list of 5
