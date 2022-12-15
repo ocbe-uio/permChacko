@@ -1,5 +1,8 @@
 #' @title The Chacko test for order-restriction with permutation test
 #' @param x vector of numeric values
+#' @references
+#' Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
+#' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
 #' @export
 permChacko <- function(x) {
   # TODO: implement original algo following Graeme's notes:
