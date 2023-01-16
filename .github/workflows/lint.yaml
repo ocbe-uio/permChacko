@@ -27,11 +27,11 @@ jobs:
 
       - name: Lint
         run: |
-        lint_package(
-          linters = linters_with_defaults(
-            object_name_linter(c("camelCase", "snake_case"))
+          lint_package(
+            linters = linters_with_defaults(
+              object_name_linter(c("camelCase", "snake_case"))
+            )
           )
-        )
         shell: Rscript {0}
         env:
           LINTR_ERROR_ON_LINT: true
