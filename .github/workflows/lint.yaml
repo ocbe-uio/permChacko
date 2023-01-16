@@ -27,7 +27,8 @@ jobs:
 
       - name: Lint
         run: |
-          lintr::lint_package(
+          library(lintr)
+          lint_package(
             linters = linters_with_defaults(
               object_name_linter(c("camelCase", "snake_case"))
             )
