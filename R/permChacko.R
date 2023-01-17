@@ -1,5 +1,6 @@
 #' @title The Chacko test for order-restriction with permutation test
 #' @param x vector of numeric values
+#' @param n_perm number of permutations to calculate the p-value numerically
 #' @param verbose if \code{TRUE}, prints intermediate messages and output
 #' @references
 #' Chacko, V. J. (1963). Testing homogeneity against ordered alternatives. The
@@ -17,12 +18,11 @@
 #' permChacko(chacko66_3)
 #' permChacko(chacko66_5)
 #' @export
-permChacko <- function(x, verbose = FALSE) {
+permChacko <- function(x, n_perm = 1000L, verbose = FALSE) {
   # Ordering and reducing vector
   x_t <- reduceVector(x, verbose)
-  chisq_bar <- chackoStatistic(x_t, sum(x), length(x))
-  return(chisq_bar)
-
+  k <- length(x)
+  chisq_bar <- chackoStatistic(x_t, n = sum(x), k)
 
   # Notice that Chacko was entirely comfortable with this ordering process
   # ending with a single value. If you look at their table on page 188 then he
@@ -51,12 +51,28 @@ permChacko <- function(x, verbose = FALSE) {
   #
   # I think with the computing power now we would simply obtain the p-value
   # using a permutation test.
-  #
+
+  # TODO: implement permutation
   # That is – imagine that the sum of our original K values is N, then by a
   # permutation I mean a stochastic distribution of N objects (independently)
   # across the k categories (with each category being equally likely under the
-  # null hypothesis). For each such permutation we can go through the ordering
-  # procedure and calculate the test statistic according to equation 5. The
-  # p-value is simply the fraction of such permutations that yield a test
+  # null hypothesis).
+  perm_chisq_bar_larger_than_chisq_bar <- 0L
+  for (rep in seq_len(n_perm)) {
+    perm_x <- permutateX(x)
+
+    # For each such permutation we can go through the ordering procedure and
+    # calculate the test statistic according to equation 5.
+    perm_x_t <- reduceVector(perm_x, verbose)
+    perm_chisq_bar <- chackoStatistic(perm_x_t, n = sum(x), k)
+
+    if (perm_chisq_bar >= chisq_bar) {
+      perm_chisq_bar_larger_than_chisq_bar <- perm_chisq_bar_larger_than_chisq_bar + 1
+    }
+  }
+  # The p-value is simply the fraction of such permutations that yield a test
   # statistic equal to or greater than the one we originally observed.
+  perm_p_value <- perm_chisq_bar_larger_than_chisq_bar / n_perm
+
+  return(c("chisq_bar" = chisq_bar, "p-value" = perm_p_value))
 }
