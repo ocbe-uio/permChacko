@@ -1,5 +1,5 @@
 reduceVector <- function(x, verbose = FALSE) {
-  x_t <- cbind("x" = x, "t" = x ^ 0L)
+  x_t <- cbind("x" = unname(x), "t" = unname(x) ^ 0L)
   while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {
     if (verbose) {
       message("Reordering vector")
