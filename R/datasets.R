@@ -47,6 +47,8 @@ chacko66_5 <- c(
 )
 
 #' @title Example by Graeme Ruxton
+#' @description A simple example showing how a vector can be reduced to one
+#' element.
 #' @name ruxton22_12_07
 #' @docType data
 ruxton22_12_07 <- c(6, 8, 4, 7, 3)
