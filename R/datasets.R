@@ -1,4 +1,4 @@
-chacko_1963_table_I <- matrix(
+chacko_1963_table_1 <- matrix(
   c(
     .333333, .500000, .166667, rep(NA, 7),
     .250000, .458333, .250000, .041667, rep(NA, 6),

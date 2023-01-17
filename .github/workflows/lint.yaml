@@ -2,7 +2,7 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches: [develop, release]
+    branches: [develop, release, fix-linter]
   pull_request:
     branches: [develop, release]
 
@@ -31,7 +31,8 @@ jobs:
           lint_package(
             linters = linters_with_defaults(
               object_name_linter(c("camelCase", "snake_case", "UPPERCASE"))
-            )
+            ),
+            exclusions = list("R/datasets.R" = 3:10)
           )
         shell: Rscript {0}
         env:
