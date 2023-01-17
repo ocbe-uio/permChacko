@@ -79,11 +79,17 @@ permChacko <- function(x, n_perm = 1000L, verbose = FALSE) {
     yes  = pchisq(chisq_bar, m - 1L, lower.tail = FALSE),
     no   = NA
   )
+
+  # Calculating table p-value
+  if (k %in% seq(3L, 10L) && m <= 10L) {
+    table_p_value <- tablePvalue(k, m, chisq_bar)
+  }
   return(
     c(
       "chisq_bar" = chisq_bar,
       "analytic_p-value" = anal_p_value,
-      "numeric_p-value" = perm_p_value
+      "numeric_p-value" = perm_p_value,
+      "tabular_p-value" = table_p_value
     )
   )
 }
