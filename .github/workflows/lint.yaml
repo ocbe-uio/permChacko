@@ -30,7 +30,7 @@ jobs:
           library(lintr)
           lint_package(
             linters = linters_with_defaults(
-              object_name_linter(c("camelCase", "snake_case"))
+              object_name_linter(c("camelCase", "snake_case", "UPPERCASE"))
             )
           )
         shell: Rscript {0}
