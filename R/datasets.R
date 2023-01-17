@@ -13,3 +13,6 @@ chacko_1963_table_1 <- matrix(
   ncol = 8,
   dimnames = list(paste("m =", seq_len(10)), paste("k =", seq(3, 10)))
 )
+chacko66_3 <- c(10L, 16L, 14L, 12L, 18L)
+chacko66_5 <- c(12L, 14L, 18L, 16L, 22L, 20L, 18L, 24L, 26L, 30L)
+ruxton22_12_07 <- c(6, 8, 4, 7, 3)
