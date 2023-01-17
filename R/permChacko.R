@@ -8,7 +8,7 @@
 #'
 #' Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
-#' @importFrom stats weighted.mean
+#' @importFrom stats weighted.mean pchisq
 #' @examples
 #' ruxton22_12_07 <- c(6, 8, 4, 7, 3)
 #' chacko66_3 <- c(10L, 16L, 14L, 12L, 18L)
