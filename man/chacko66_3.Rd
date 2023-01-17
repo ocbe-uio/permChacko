@@ -3,30 +3,17 @@
 \docType{data}
 \name{chacko66_3}
 \alias{chacko66_3}
-\alias{chacko66_5}
 \title{Chacko (1966), section 3}
 \format{
 An object of class \code{integer} of length 5.
-
-An object of class \code{integer} of length 10.
 }
 \usage{
 chacko66_3
-
-chacko66_5
 }
 \description{
 A multinomial example with 5 cell frequencies
-
-A plate with the humidity values continuously decreasing was
-divided into 10 equal parts and 20 termites introduced on each part. The
-number of termites counted as a specified time interval on each of the 10
-parts of the plate are shown in the dataset
 }
 \references{
-Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
-Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
-
 Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
 Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
 }

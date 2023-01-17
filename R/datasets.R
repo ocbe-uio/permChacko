@@ -39,7 +39,7 @@ chacko66_3 <- c("x1" = 10L, "x2" = 16L, "x3" = 14L, "x4" = 12L, "x5" = 18L)
 #' @references
 #' Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
-#' @name chacko66_3
+#' @name chacko66_5
 #' @docType data
 chacko66_5 <- c(
   "x1" = 12L, "x2" = 14L, "x3" = 18L, "x4" = 16L, "x5" = 22L,
