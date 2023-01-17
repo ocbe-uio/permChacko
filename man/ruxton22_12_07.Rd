@@ -11,6 +11,7 @@ An object of class \code{numeric} of length 5.
 ruxton22_12_07
 }
 \description{
-Example by Graeme Ruxton
+A simple example showing how a vector can be reduced to one
+element.
 }
 \keyword{datasets}
