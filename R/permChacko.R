@@ -1,5 +1,6 @@
 #' @title The Chacko test for order-restriction with permutation test
 #' @param x vector of numeric values
+#' @param n_perm number of permutations to calculate the p-value numerically
 #' @param verbose if \code{TRUE}, prints intermediate messages and output
 #' @references
 #' Chacko, V. J. (1963). Testing homogeneity against ordered alternatives. The
@@ -7,7 +8,7 @@
 #'
 #' Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
-#' @importFrom stats weighted.mean
+#' @importFrom stats weighted.mean pchisq
 #' @examples
 #' ruxton22_12_07 <- c(6, 8, 4, 7, 3)
 #' chacko66_3 <- c(10L, 16L, 14L, 12L, 18L)
@@ -17,12 +18,11 @@
 #' permChacko(chacko66_3)
 #' permChacko(chacko66_5)
 #' @export
-permChacko <- function(x, verbose = FALSE) {
+permChacko <- function(x, n_perm = 1000L, verbose = FALSE) {
   # Ordering and reducing vector
   x_t <- reduceVector(x, verbose)
-  chisq_bar <- chackoStatistic(x_t, sum(x), length(x))
-  return(chisq_bar)
-
+  k <- length(x)
+  chisq_bar <- chackoStatistic(x_t, n = sum(x), k)
 
   # Notice that Chacko was entirely comfortable with this ordering process
   # ending with a single value. If you look at their table on page 188 then he
@@ -51,12 +51,39 @@ permChacko <- function(x, verbose = FALSE) {
   #
   # I think with the computing power now we would simply obtain the p-value
   # using a permutation test.
-  #
+
   # That is – imagine that the sum of our original K values is N, then by a
   # permutation I mean a stochastic distribution of N objects (independently)
   # across the k categories (with each category being equally likely under the
-  # null hypothesis). For each such permutation we can go through the ordering
-  # procedure and calculate the test statistic according to equation 5. The
-  # p-value is simply the fraction of such permutations that yield a test
+  # null hypothesis).
+  perm_chisq_bar <- vapply(
+    X = seq_len(n_perm),
+    FUN = function(n, x, k) {
+      perm_x <- permutateX(x)
+
+      # For each such permutation we can go through the ordering procedure and
+      # calculate the test statistic according to equation 5.
+      perm_x_t <- reduceVector(perm_x, verbose)
+      perm_chisq_bar <- chackoStatistic(perm_x_t, n = sum(perm_x), k)
+      return(perm_chisq_bar)
+    },
+    FUN.VALUE = vector("double", 1L),
+    x = x, k = k
+  )
+  # The p-value is simply the fraction of such permutations that yield a test
   # statistic equal to or greater than the one we originally observed.
+  perm_p_value <- sum(perm_chisq_bar >= chisq_bar) / n_perm
+  m <- nrow(x_t)
+  anal_p_value <- ifelse(
+    test = m > 1L,
+    yes  = pchisq(chisq_bar, m - 1L, lower.tail = FALSE),
+    no   = NA
+  )
+  return(
+    c(
+      "chisq_bar" = chisq_bar,
+      "analytic_p-value" = anal_p_value,
+      "numeric_p-value" = perm_p_value
+    )
+  )
 }

@@ -4,10 +4,12 @@
 \alias{permChacko}
 \title{The Chacko test for order-restriction with permutation test}
 \usage{
-permChacko(x, verbose = FALSE)
+permChacko(x, n_perm = 1000L, verbose = FALSE)
 }
 \arguments{
 \item{x}{vector of numeric values}
+
+\item{n_perm}{number of permutations to calculate the p-value numerically}
 
 \item{verbose}{if \code{TRUE}, prints intermediate messages and output}
 }
