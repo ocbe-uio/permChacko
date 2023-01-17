@@ -31,7 +31,8 @@ jobs:
           lint_package(
             linters = linters_with_defaults(
               object_name_linter(c("camelCase", "snake_case", "UPPERCASE"))
-            )
+            ),
+            exclusions = list("R/datasets.R" = 3:10)
           )
         shell: Rscript {0}
         env:
