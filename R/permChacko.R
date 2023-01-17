@@ -64,7 +64,7 @@ permChacko <- function(x, n_perm = 1000L, verbose = FALSE) {
       # For each such permutation we can go through the ordering procedure and
       # calculate the test statistic according to equation 5.
       perm_x_t <- reduceVector(perm_x, verbose)
-      perm_chisq_bar <- chackoStatistic(perm_x_t, n = sum(x), k)
+      perm_chisq_bar <- chackoStatistic(perm_x_t, n = sum(perm_x), k)
       return(perm_chisq_bar)
     },
     FUN.VALUE = vector("double", 1L),
