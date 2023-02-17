@@ -6,7 +6,4 @@
 # * https://r-pkgs.org/tests.html
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
-library(testthat)
-library(permutatedChacko)
-
-test_check("permutatedChacko")
+testthat::test_check("permutatedChacko")
