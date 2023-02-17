@@ -9,3 +9,9 @@ test_that("Other from produce correct vectors", {
     tolerance = 1e-0
   )
 })
+
+test_that("Expected output is produced", {
+  set.seed(862255)
+  vec <- rpois(5L, lambda = 100L)
+  expect_output(suppressMessages(reduceVector(vec, verbose = TRUE)))
+})
