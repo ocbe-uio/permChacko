@@ -1,5 +1,5 @@
 Package: permutatedChacko
-Title: Chacko test for order-restriction with permutation
+Title: Chacko Test for Order-Restriction with Permutation
 Version: 0.0.0.9010
 Authors@R:
     c(
@@ -25,4 +25,3 @@ RoxygenNote: 7.2.3
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Date: 2022-12-15
