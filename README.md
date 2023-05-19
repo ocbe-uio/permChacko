@@ -1,11 +1,11 @@
 
-# permutatedChacko
+# permChacko
 
-permutatedChacko is an R package that implements a modified version of the Chacko (1966) algorithm for order restriction.
+permChacko is an R package that implements a modified version of the Chacko (1966) algorithm for order restriction.
 
 ## Installation
 
-You can install the development version of permutatedChacko like so:
+You can install the development version of permChacko like so:
 
 ``` r
 remotes::install_github("ocbe-uio/permChacko")
@@ -16,7 +16,7 @@ remotes::install_github("ocbe-uio/permChacko")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(permutatedChacko)
+library(permChacko)
 permChacko(chacko66_3) # example 5 from Chacko (1966)
 ```
 
