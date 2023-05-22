@@ -2,6 +2,14 @@
 #' @param x vector of numeric values
 #' @param n_perm number of permutations to calculate the p-value numerically
 #' @param verbose if \code{TRUE}, prints intermediate messages and output
+#' @return A named vector with the following elements:
+#' \describe{
+#'  \item{chisq_bar}{the test statistic}
+#'  \item{analytic_p-value}{the p-value calculated analytically}
+#'  \item{numeric_p-value}{the p-value calculated numerically}
+#'  \item{tabular_p-value}{the tabular p-value from Chacko (1963)}
+#' }
+#'
 #' @references
 #' Chacko, V. J. (1963). Testing homogeneity against ordered alternatives. The
 #' Annals of Mathematical Statistics, 945-956.
