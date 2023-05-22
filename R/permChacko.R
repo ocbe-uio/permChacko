@@ -53,6 +53,8 @@ permChacko <- function(x, n_perm = 1000L, verbose = FALSE) {
   # Calculating table p-value
   if (k %in% seq(3L, 10L) && m <= 10L) {
     table_p_value <- tablePvalue(k, m, chisq_bar)
+  } else {
+    table_p_value <- NA
   }
   return(
     c(
