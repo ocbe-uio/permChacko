@@ -13,6 +13,15 @@ permChacko(x, n_perm = 1000L, verbose = FALSE)
 
 \item{verbose}{if \code{TRUE}, prints intermediate messages and output}
 }
+\value{
+A named vector with the following elements:
+\describe{
+\item{chisq_bar}{the test statistic}
+\item{analytic_p-value}{the p-value calculated analytically}
+\item{numeric_p-value}{the p-value calculated numerically}
+\item{tabular_p-value}{the tabular p-value from Chacko (1963)}
+}
+}
 \description{
 The Chacko test for order-restriction with permutation test
 }
