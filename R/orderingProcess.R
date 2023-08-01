@@ -27,9 +27,9 @@ orderingProcess <- function(x_t, verbose = FALSE) {
     }
     i <- i + 1L
   }
+  out <- cbind("x" = x, "t" = t)
   if (verbose) {
     message("\nFinal vector")
-    out <- cbind("x" = x, "t" = t)
     print(out)
   }
   return(out)
