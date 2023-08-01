@@ -3,13 +3,13 @@ orderingProcess <- function(x_t, verbose = FALSE) {
   t <- x_t[, "t"]
   i <- 1L
   if (verbose) {
-    message("Reordering vector")
+    message("\nInitial vector")
     print(x_t)
   }
   while (i < length(x)) {
-    if (verbose) cat("Comparing", x[i], "and", x[i + 1L])
+    if (verbose) cat("\nComparing", x[i], "and", x[i + 1L])
     if (x[i] <= x[i + 1L]) {
-      if (verbose) cat(". Next.\n")
+      if (verbose) cat(". Next.")
     } else {
       if (verbose) cat(". Replacing.\n")
       # Replacing values
@@ -20,15 +20,15 @@ orderingProcess <- function(x_t, verbose = FALSE) {
       x <- x[-(i + 1L)]
       t <- t[-(i + 1L)]
 
-      if (verbose) {
-        message("New values and weights")
+      if (verbose && i < length(x) - 1L) {
+        message("\nNew values and weights")
         print(cbind("x" = x, "t" = t))
       }
     }
     i <- i + 1L
   }
   if (verbose) {
-    message("Final vector")
+    message("\nFinal vector")
     out <- cbind("x" = x, "t" = t)
     print(out)
   }

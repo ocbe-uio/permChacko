@@ -7,6 +7,7 @@
 reduceVector <- function(x, verbose = FALSE) {
   x_t <- cbind("x" = unname(x), "t" = unname(x) ^ 0L)
   while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {
+    if (verbose) message("\nVector needs reduction")
     x_t <- orderingProcess(x_t, verbose = verbose)
   }
   return(invisible(x_t))
