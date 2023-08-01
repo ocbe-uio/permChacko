@@ -29,6 +29,7 @@ chacko_1963_table_1 <- matrix(
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
 #' @name chacko66_3
 #' @docType data
+#' @export
 chacko66_3 <- c("x1" = 10L, "x2" = 16L, "x3" = 14L, "x4" = 12L, "x5" = 18L)
 
 #' @title Chacko (1966), section 5
@@ -41,6 +42,7 @@ chacko66_3 <- c("x1" = 10L, "x2" = 16L, "x3" = 14L, "x4" = 12L, "x5" = 18L)
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
 #' @name chacko66_5
 #' @docType data
+#' @export
 chacko66_5 <- c(
   "x1" = 12L, "x2" = 14L, "x3" = 18L, "x4" = 16L, "x5" = 22L,
   "x6" = 20L, "x7" = 18L, "x8" = 24L, "x9" = 26L, "x10" = 30L
