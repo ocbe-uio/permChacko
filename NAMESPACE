@@ -3,5 +3,6 @@
 export(chacko66_3)
 export(chacko66_5)
 export(permChacko)
+export(reduceVector)
 importFrom(stats,pchisq)
 importFrom(stats,weighted.mean)
