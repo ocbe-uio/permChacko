@@ -4,18 +4,14 @@
 # values, then you have a 20% chance that this process that the order process
 # results in a single value.
 
-reduceVector <- function(x, verbose = FALSE) {
+reduceVector <- function(x, verbosity = 0L) {
   x_t <- cbind("x" = unname(x), "t" = unname(x) ^ 0L)
   while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {
-    if (verbose) {
-      message("Reordering vector")
-      print(x_t)
+    if (verbosity >= 1L) {
+      message("\nVector needs reduction\nInitial vector")
+      print(t(x_t))
     }
-    x_t <- orderingProcess(x_t, verbose = verbose)
+    x_t <- orderingProcess(x_t, verbosity)
   }
-  if (verbose) {
-    message("Final vector")
-    print(x_t)
-  }
-  return(x_t)
+  return(invisible(x_t))
 }
