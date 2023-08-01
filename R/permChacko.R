@@ -1,7 +1,7 @@
 #' @title The Chacko test for order-restriction with permutation test
 #' @param x vector of numeric values
 #' @param n_perm number of permutations to calculate the p-value numerically
-#' @param verbose if \code{TRUE}, prints intermediate messages and output
+#' @param verbosity if \code{TRUE}, prints intermediate messages and output
 #' @return A named vector with the following elements:
 #' \describe{
 #'  \item{chisq_bar}{the test statistic}
@@ -26,12 +26,16 @@
 #' permChacko(chacko66_3)
 #' permChacko(chacko66_5)
 #' @export
-permChacko <- function(x, n_perm = 1000L, verbose = FALSE) {
+permChacko <- function(x, n_perm = 1000L, verbosity = 0) {
+  if (verbosity >= 1L) message("Reducing original vector")
   # Ordering and reducing vector
-  x_t <- reduceVector(x, verbose)
+  x_t <- reduceVector(x, verbosity)
   k <- length(x)
   chisq_bar <- chackoStatistic(x_t, n = sum(x), k)
 
+  if (verbosity >= 1L && n_perm > 0L) {
+    message("\nReducing ", n_perm, " permutations of original vector")
+  }
   # Calculating the mean of the current permutation
   perm_chisq_bar <- vapply(
     X = seq_len(n_perm),
@@ -40,7 +44,7 @@ permChacko <- function(x, n_perm = 1000L, verbose = FALSE) {
 
       # For each such permutation we can go through the ordering procedure and
       # calculate the test statistic according to equation 5.
-      perm_x_t <- reduceVector(perm_x, verbose)
+      perm_x_t <- reduceVector(perm_x, 0L)
       perm_chisq_bar <- chackoStatistic(perm_x_t, n = sum(perm_x), k)
       return(perm_chisq_bar)
     },
@@ -64,6 +68,7 @@ permChacko <- function(x, n_perm = 1000L, verbose = FALSE) {
   } else {
     table_p_value <- NA
   }
+  if (verbosity >= 1L) message("\nTest statistics")
   return(
     c(
       "chisq_bar" = chisq_bar,

@@ -14,7 +14,7 @@ test_that("Expected output is produced", {
   # Fixed input
   set.seed(862255)
   vec <- rpois(5L, lambda = 100L)
-  expect_output(suppressMessages(reduceVector(vec, verbose = TRUE)))
+  expect_output(suppressMessages(reduceVector(vec, verbosity = 3L)))
 
   # Random imput
   for (i in seq_len(10L)) {

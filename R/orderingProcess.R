@@ -1,17 +1,13 @@
-orderingProcess <- function(x_t, verbose = FALSE) {
+orderingProcess <- function(x_t, verbosity = 0) {
   x <- x_t[, "x"]
   t <- x_t[, "t"]
   i <- 1L
-  if (verbose) {
-    message("\nInitial vector")
-    print(x_t)
-  }
   while (i < length(x)) {
-    if (verbose) cat("\nComparing", x[i], "and", x[i + 1L])
+    if (verbosity >= 2L) cat("\nComparing", x[i], "and", x[i + 1L])
     if (x[i] <= x[i + 1L]) {
-      if (verbose) cat(". Next.")
+      if (verbosity >= 2L) cat(". Next.")
     } else {
-      if (verbose) cat(". Replacing.\n")
+      if (verbosity >= 2L) cat(". Replacing.\n")
       # Replacing values
       x[i] <- weighted.mean(c(x[i], x[i + 1L]), c(t[i], t[i + 1L]))
       t[i] <- t[i] + t[i + 1L]
@@ -20,7 +16,7 @@ orderingProcess <- function(x_t, verbose = FALSE) {
       x <- x[-(i + 1L)]
       t <- t[-(i + 1L)]
 
-      if (verbose && i < length(x) - 1L) {
+      if (verbosity >= 2L && i < length(x) - 1L) {
         message("\nNew values and weights")
         print(cbind("x" = x, "t" = t))
       }
@@ -28,9 +24,9 @@ orderingProcess <- function(x_t, verbose = FALSE) {
     i <- i + 1L
   }
   out <- cbind("x" = x, "t" = t)
-  if (verbose) {
+  if (verbosity >= 1L) {
     message("\nFinal vector")
-    print(out)
+    print(t(out))
   }
   return(out)
 }
