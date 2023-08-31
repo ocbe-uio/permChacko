@@ -1,4 +1,5 @@
 #' @keywords internal
+#' @aliases permChacko-package
 "_PACKAGE"
 
 ## usethis namespace: start
