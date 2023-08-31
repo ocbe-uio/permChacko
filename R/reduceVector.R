@@ -20,12 +20,23 @@
 #' reduceVector(chacko66_sec5)
 reduceVector <- function(x, verbosity = 0L) {
   x_t <- cbind("x" = unname(x), "t" = unname(x) ^ 0L)
+  reductions <- 0L
   while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {
     if (verbosity >= 1L) {
       message("\nVector needs reduction\nInitial vector")
       print(t(x_t))
     }
+    reductions <- reductions + 1L
     x_t <- orderingProcess(x_t, verbosity)
   }
-  return(x_t)
+  out <- list(
+    "original_vector" = x,
+    "reduced_vector" = x_t[, "x"],
+    "weights" = x_t[, "t"],
+    "x_t" = x_t,
+    "reductions" = reductions,
+    "verbose" = verbosity
+  )
+  class(out) <- "reduced_vector"
+  return(out)
 }

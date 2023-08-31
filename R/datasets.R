@@ -6,6 +6,7 @@
 #' Annals of Mathematical Statistics, 945-956.
 #' @name chacko63_tab1
 #' @docType data
+#' @export
 chacko63_tab1 <- matrix(
   c(
     .333333, .500000, .166667, rep(NA, 7),
@@ -53,4 +54,5 @@ chacko66_sec5 <- c(
 #' element.
 #' @name ruxton221207
 #' @docType data
+#' @export
 ruxton221207 <- c(6, 8, 4, 7, 3)

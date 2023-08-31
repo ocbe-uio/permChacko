@@ -29,7 +29,7 @@
 permChacko <- function(x, n_perm = 1000L, verbosity = 0) {
   if (verbosity >= 1L) message("Reducing original vector")
   # Ordering and reducing vector
-  x_t <- reduceVector(x, verbosity)
+  x_t <- reduceVector(x, verbosity)[["x_t"]]
   k <- length(x)
   chisq_bar <- chackoStatistic(x_t, n = sum(x), k)
 
@@ -44,7 +44,7 @@ permChacko <- function(x, n_perm = 1000L, verbosity = 0) {
 
       # For each such permutation we can go through the ordering procedure and
       # calculate the test statistic according to equation 5.
-      perm_x_t <- reduceVector(perm_x, 0L)
+      perm_x_t <- reduceVector(perm_x, 0L)[["x_t"]]
       perm_chisq_bar <- chackoStatistic(perm_x_t, n = sum(perm_x), k)
       return(perm_chisq_bar)
     },
@@ -69,12 +69,18 @@ permChacko <- function(x, n_perm = 1000L, verbosity = 0) {
     table_p_value <- NA
   }
   if (verbosity >= 1L) message("\nTest statistics")
-  return(
-    c(
-      "chisq_bar" = chisq_bar,
-      "analytic_p-value" = anal_p_value,
-      "numeric_p-value" = perm_p_value,
-      "tabular_p-value" = table_p_value
-    )
+  p_values <- c(
+    "analytic" = anal_p_value,
+    "numeric" = perm_p_value,
+    "tabular" = table_p_value
   )
+  out <- list(
+    statistic = chisq_bar,
+    p_values = p_values,
+    n_perm = n_perm,
+    observed_data = x,
+    reduced_data = x_t
+  )
+  class(out) <- "chacko_test"
+  return(out)
 }
