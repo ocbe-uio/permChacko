@@ -1,7 +1,7 @@
 test_that("Other from produce correct vectors", {
   expect_equal(reduceVector(ruxton221207)[, "x"], c("x" = 5.6))
   expect_equal(reduceVector(ruxton221207)[, "t"], c("t" = 5))
-  expect_equal(permChacko(ruxton221207)[["chisq_bar"]], 0)
+  expect_equal(permChacko(ruxton221207)[["statistic"]], 0)
   set.seed(2715249)
   expect_equal(
     permChacko(ruxton221207)[["numeric_p-value"]],
@@ -23,7 +23,7 @@ test_that("Expected output is produced", {
     x <- rpois(n, lambda = mu)
     reps <- sample(c(0L, 10L, 100L, 1000L, 2000L), size = 1L)
     y <- permChacko(x, n_perm = reps)
-    expect_length(y, 4L)
-    expect_type(y, "double")
+    expect_length(y, 5L)
+    expect_type(y, "list")
   }
 })
