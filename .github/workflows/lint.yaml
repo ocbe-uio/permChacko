@@ -32,7 +32,7 @@ jobs:
             linters = linters_with_defaults(
               object_name_linter(c("camelCase", "snake_case", "UPPERCASE"))
             ),
-            exclusions = list("R/datasets.R" = 16:18)
+            exclusions = list("R/datasets.R" = 17:19)
           )
         shell: Rscript {0}
         env:
