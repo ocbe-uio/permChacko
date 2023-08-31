@@ -69,12 +69,18 @@ permChacko <- function(x, n_perm = 1000L, verbosity = 0) {
     table_p_value <- NA
   }
   if (verbosity >= 1L) message("\nTest statistics")
-  statistics <- c(
-    "chisq_bar" = chisq_bar,
-    "analytic_p-value" = anal_p_value,
-    "numeric_p-value" = perm_p_value,
-    "tabular_p-value" = table_p_value
+  p_values <- c(
+    "analytic" = anal_p_value,
+    "numeric" = perm_p_value,
+    "tabular" = table_p_value
   )
-  class(statistics) <- "chacko_test"
-  return(statistics)
+  out <- list(
+    statistic = chisq_bar,
+    p_values = p_values,
+    n_perm = n_perm,
+    observed_data = x,
+    reduced_data = x_t
+  )
+  class(out) <- "chacko_test"
+  return(out)
 }
