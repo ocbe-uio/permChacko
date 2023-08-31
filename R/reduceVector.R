@@ -16,8 +16,8 @@
 #' @examples
 #' reduceVector(c(10, 16, 14, 12, 18))
 #' reduceVector(c(10, 8, 4, 2, 1))
-#' reduceVector(chacko66_3)
-#' reduceVector(chacko66_5)
+#' reduceVector(chacko66_sec3)
+#' reduceVector(chacko66_sec5)
 reduceVector <- function(x, verbosity = 0L) {
   x_t <- cbind("x" = unname(x), "t" = unname(x) ^ 0L)
   while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {

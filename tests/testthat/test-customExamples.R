@@ -1,11 +1,11 @@
 test_that("Other from produce correct vectors", {
-  expect_equal(reduceVector(ruxton22_12_07)[, "x"], c("x" = 5.6))
-  expect_equal(reduceVector(ruxton22_12_07)[, "t"], c("t" = 5))
-  expect_equal(permChacko(ruxton22_12_07)[["chisq_bar"]], 0)
+  expect_equal(reduceVector(ruxton221207)[, "x"], c("x" = 5.6))
+  expect_equal(reduceVector(ruxton221207)[, "t"], c("t" = 5))
+  expect_equal(permChacko(ruxton221207)[["chisq_bar"]], 0)
   set.seed(2715249)
   expect_equal(
-    permChacko(ruxton22_12_07)[["numeric_p-value"]],
-    permChacko(ruxton22_12_07)[["tabular_p-value"]],
+    permChacko(ruxton221207)[["numeric_p-value"]],
+    permChacko(ruxton221207)[["tabular_p-value"]],
     tolerance = 1e-0
   )
 })

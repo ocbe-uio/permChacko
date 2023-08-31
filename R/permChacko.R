@@ -18,13 +18,13 @@
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
 #' @importFrom stats weighted.mean pchisq
 #' @examples
-#' ruxton22_12_07 <- c(6, 8, 4, 7, 3)
-#' chacko66_3 <- c(10L, 16L, 14L, 12L, 18L)
-#' chacko66_5 <- c(12L, 14L, 18L, 16L, 22L, 20L, 18L, 24L, 26L, 30L)
+#' ruxton221207 <- c(6, 8, 4, 7, 3)
+#' chacko66_sec3 <- c(10L, 16L, 14L, 12L, 18L)
+#' chacko66_sec5 <- c(12L, 14L, 18L, 16L, 22L, 20L, 18L, 24L, 26L, 30L)
 #'
-#' permChacko(ruxton22_12_07)
-#' permChacko(chacko66_3)
-#' permChacko(chacko66_5)
+#' permChacko(ruxton221207)
+#' permChacko(chacko66_sec3)
+#' permChacko(chacko66_sec5)
 #' @export
 permChacko <- function(x, n_perm = 1000L, verbosity = 0) {
   if (verbosity >= 1L) message("Reducing original vector")

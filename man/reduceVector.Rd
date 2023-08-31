@@ -22,8 +22,8 @@ Chacko (1963) and Chacko (1966).
 \examples{
 reduceVector(c(10, 16, 14, 12, 18))
 reduceVector(c(10, 8, 4, 2, 1))
-reduceVector(chacko66_3)
-reduceVector(chacko66_5)
+reduceVector(chacko66_sec3)
+reduceVector(chacko66_sec5)
 }
 \author{
 Waldir Leoncio
