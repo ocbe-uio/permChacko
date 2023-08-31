@@ -4,6 +4,7 @@
 * Exported `reduceVector()` ([issue #4](https://github.com/ocbe-uio/permChacko/issues/4)).
 * Added package documentation ([issue #5](https://github.com/ocbe-uio/permChacko/issues/5)).
 * Standardized dataset names
+* Created print methods for `permChacko()` and `reduceVector()` ([issue #7](https://github.com/ocbe-uio/permChacko/issues/7)).
 
 # permChacko 0.1.0
 
