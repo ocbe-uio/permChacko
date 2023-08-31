@@ -17,7 +17,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(permChacko)
-permChacko(chacko66_3) # example 5 from Chacko (1966)
+permChacko(chacko66_sec3) # example 5 from Chacko (1966)
 ```
 
 ## Badges
