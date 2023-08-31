@@ -1,10 +1,10 @@
 test_that("Vector reduction procedure works well", {
   c66s3 <- reduceVector(chacko66_sec3)
   c66s5 <- reduceVector(chacko66_sec5)
-  expect_equal(c66s3[, "x"], c(10, 14, 18))
-  expect_equal(c66s3[, "t"], c(1, 3, 1))
-  expect_equal(c66s5[, 1], c(12, 14, 17, 20, 24, 26, 30))
-  expect_equal(c66s5[, 2], c(1, 1, 2, 3, 1, 1, 1))
+  expect_equal(c66s3[["x_t"]][, "x"], c(10, 14, 18))
+  expect_equal(c66s3[["x_t"]][, "t"], c(1, 3, 1))
+  expect_equal(c66s5[["x_t"]][, 1], c(12, 14, 17, 20, 24, 26, 30))
+  expect_equal(c66s5[["x_t"]][, 2], c(1, 1, 2, 3, 1, 1, 1))
 })
 
 test_that("Examples from Chacko (1966) produce correct statistics", {

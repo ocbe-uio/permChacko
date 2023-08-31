@@ -1,6 +1,6 @@
 test_that("Other from produce correct vectors", {
-  expect_equal(reduceVector(ruxton221207)[, "x"], c("x" = 5.6))
-  expect_equal(reduceVector(ruxton221207)[, "t"], c("t" = 5))
+  expect_equal(reduceVector(ruxton221207)[["x_t"]][, "x"], c("x" = 5.6))
+  expect_equal(reduceVector(ruxton221207)[["x_t"]][, "t"], c("t" = 5))
   expect_equal(permChacko(ruxton221207)[["statistic"]], 0)
   set.seed(2715249)
   expect_equal(
