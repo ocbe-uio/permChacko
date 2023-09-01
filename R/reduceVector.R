@@ -20,6 +20,7 @@
 #' reduceVector(chacko66_sec5)
 #' reduceVector(chacko66_sec5, verbosity = 1)
 reduceVector <- function(x, verbosity = 0L) {
+  if (!is.null(dim(x))) stop("Input must be a vector")
   x_t <- cbind("x" = unname(x), "t" = unname(x) ^ 0L)
   reductions <- 0L
   while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {

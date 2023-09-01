@@ -23,6 +23,7 @@
 #' permChacko(chacko66_sec5)
 #' @export
 permChacko <- function(x, n_perm = 1000L, verbosity = 0) {
+  if (!is.null(dim(x))) stop("Input must be a vector")
   if (verbosity >= 1L) message("Reducing original vector")
   # Ordering and reducing vector
   x_t <- reduceVector(x, verbosity)[["x_t"]]
