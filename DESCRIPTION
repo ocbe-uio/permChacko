@@ -1,6 +1,6 @@
 Package: permChacko
 Title: Chacko Test for Order-Restriction with Permutation
-Version: 0.1.0.9006
+Version: 0.1.0.9007
 Authors@R:
     c(
         person(
