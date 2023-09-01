@@ -4,14 +4,14 @@ print.chacko_test <- function(x, ...) {
   cat(
     sprintf(
       paste0(
-        "          Chacko Test for Order-restriction with Permutation Test\n\n",
-        "Null hypothesis       : %s\n",
-        "Alternative hypothesis: %s\n\n",
+        "\n        Chacko Test for Order-restriction with Permutation Test\n\n",
+        "Null hypothesis           : %s\n",
+        "Alternative hypothesis    : %s\n\n",
         "Test statistic (chisq_bar): %f\n",
         "p-values:\n",
-        "  Analytic p-value:         %f\n",
-        "  Numeric p-value:          %f (%d permutations)\n",
-        "  Tabular p-value:          %f\n\n"
+        "  Analytic p-value        : %f\n",
+        "  Numeric p-value         : %f (%d permutations)\n",
+        "  Tabular p-value         : %f\n"
       ),
       paste0("p", seq_along(x$observed_data), collapse = " == "),
       paste0("p", seq_along(x$observed_data), collapse = " <= "),
@@ -25,15 +25,18 @@ print.chacko_test <- function(x, ...) {
 print.reduced_vector <- function(x, details = TRUE, ...) {
   if (x[["verbose"]] >= 1L) {
     cat(sprintf("Original vector has been reduced %d times", x[["reductions"]]))
+    cat("\n")
   } else {
     cat(
       sprintf(
         paste0(
+          "\n",
           "Original vector: %s\n",
           "Reduced vector : %s\n",
           "Final weights  : %s\n",
           "Original vector has been reduced %d times\n\n",
-          "Run reduceVector() with verbosity > 1) to see the reduction process"
+          "Run reduceVector() with verbosity > 1) to see the reduction process",
+          "\n"
         ),
         paste0(x[["original_vector"]], collapse = "\t"),
         paste0(x[["reduced_vector"]], collapse = "\t"),
