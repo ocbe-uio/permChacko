@@ -27,3 +27,8 @@ test_that("Expected output is produced", {
     expect_type(y, "list")
   }
 })
+
+test_that("Passing matrices is not possible", {
+  expect_error(permChacko(chacko63_tab1), "Input must be a vector")
+  expect_error(reduceVector(chacko63_tab1), "Input must be a vector")
+})
