@@ -7,30 +7,61 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-# Further thoughts on the test of Chacko (1966)
+## Chacko's ordering process
 
-Thank you both for your patience with me, I think the Chacko test has been neglected and Morten’s book does the field a great service by highlighting it. However, I feel the book is not as explicit as it might be about how the order process is achieved and consequently, I am not sure that the software implementation matches Chacko’s procedure in terms of how the test statistical should be calculated. The key issues to me are that weights can take values above 2 and that these weights are used in the averaging used in the ordering process.
+We begin with a list of $k$ values $\{x_1, \ldots, x_k\}$ with associated weights $t_1 = \ldots = t_k = 1$.
 
-I think the Chacko’s ordering process is as follows.
+If for any $1 \leq i \leq (k - 1)$ we have that $x_k > x_{k + 1}$, then we replace both values $x_k$ and $x_{k + 1}$ by a single value which is their weighted average (using the weights $t_k$ and $t_{k + 1})$. This new value takes the combined weight of the two values it replaces, $t_k + t_{k + 1}$. The list is now one shorter, so $k$ becomes $k - 1$.
 
-We begin with a list of k values x1,…xk with associated weights t1 = t2  = …. = tk = 1.
+We repeat this process until either $k = 1$ or we have a monotone increasing sequence of numbers.
 
-If for any 1≤i ≤ (k-1), we have that xk > xk+1 then we replace both values xk and xk+1 by a single value which is their weighted average (using the weights tk and tk+1), this new value takes the combined weight of the two values it replaces tk + tk+1. The list is now one shorter, so k becomes k-1
+We can recreate the two ordering process examples shown on pages 187 (section 3) and 189 (section 5) of Chacko (1966) in this package.
 
-We repeat this process until k = 1 or we have a monotone increasing sequence of numbers.
+```{r reduction}
+library(permChacko)
+reduceVector(chacko66_sec3)
+reduceVector(chacko66_sec5)
+```
 
-This procedure allows me to recreate the two ordering process examples shown on pages 187 and 189 of Chacko (1966).
+Notice that Chacko was entirely comfortable with this ordering process ending with a single value. If you look at their table on page 188 then he suggests that under the null hypothesis, if you start with a list of 5 values, then you have a 20% chance that the order process results in a single value.
 
-Notice that Chacko was entirely comfortable with this ordering process ending with a single value. If you look at their table on page 188 then he suggests that under the null hypothesis – if you start with a list of 5 values, then you have a 20% chance that this process that the order process results in a single value.
+The aforementioned table is available both in Chacko (1963) and Chacko (1966), as well as in this package:
 
-Even if the outcome is a single value, the test statistic can be calculated from equation 5 on page 188.
+```{r table}
+chacko63_tab1
+```
 
-The question then becomes how do we obtain a p-value associated with this test statistic.
+Even if the outcome is a single value, the test statistic can be calculated from equation 5 on page 188, i.e.:
 
-I agree that just under equation 5, Chacko says that the test statistic is asymptotically chi-squared with m- 1 degrees of freedom (where m is the length of the final order list of values). However, he does not discuss what this means in the event on m = 1. However, as I discuss above, they clearly expect that this will happen sometimes.
+$$
+\bar\chi^2 = \frac{k}{n} \sum_{j = 1}^m t_j \left[ \bar x_{t_j} - \frac{n}{k}\right]^2
+$$
 
-If you look at their final example on how they evaluate significance – they say that you reject the null hypothesis if the  observed calculated value obtained from equation (5) is greater than the value c obtained from equation 6. This approach does work when m = 1 but seems very cumbersome – requiring calculation of the probability values given on the table on page 188, which requires consultation of Chacko (1963).
+In the equation above, $\bar x_{t_j}$ are the values in the reduced vector, $n = \sum_{i = 1}^k x_i$, $m$ is the number of elements in the final reduced vector $\bar x$. The statistic $\bar\chi^2$ is asymptotically distributed as $\chi^2(m - 1)$.
 
-I think with the computing power now we would simply obtain the p-value using a permutation test.
+The question then becomes how to obtain a $p$-value associated with this test statistic.
 
-That is – imagine that the sum of our original K values is N, then by a permutation I mean a stochastic distribution of N objects (independently) across the k categories (with each category being equally likely under the null hypothesis). For each such permutation we can go through the ordering procedure and calculate the test statistic according to equation 5. The p-value is simply the fraction of such permutations that yield a test statistic equal to or greater than the one we originally observed.
+## Calculating $p$-values
+
+Given that $\bar\chi^2 \sim \chi^2(m - 1)$, an analytical $p$-value can be calculated for the test statistic for any $m > 1$. Moreover, for certain combinations of $m$ and $k$ the $p$-value can be calculated using the table shown below. Finally, a numeric $p$-value can be calculated through computer simulation, which will be explained later. All these p-values are calculated using the `permChacko()` function.
+
+```{r p-values}
+permChacko(chacko66_sec3)
+permChacko(chacko66_sec5)
+```
+
+One omission from Chacko (1966) is the event where $m = 1$. As discussed above, they clearly expect that this will happen sometimes, but provide no explanation as to how to calculate the $p$-value in this case. In this package, we suggest an approach to calculate this value using a permutation test.
+
+If you look at Chacko's final example on how they evaluate significance, they say that you reject the null hypothesis if the observed calculated value obtained from the equation for $\bar\chi^2$ above is greater than the value $c$ obtained from equation (6) in the paper (reproduced below).
+
+$$
+\alpha = \sum_{m = 2}^k p_{m, k} \cdot p\left[\chi^2_{(m - 1)} \geq c\right]
+$$
+
+This approach _does_ work when $m = 1$, but seems very cumbersome, requiring calculation of the probability values $p_{m, k}$, which in turn requires consultation or partial recreation of the Chacko table. With the computing power available to us, 60 years into the future from Chacko's seminal work, we can simply obtain a close-enough $p$-value using a permutation test.
+
+### Permutation test
+
+Imagine that the sum of our original $k$ values is $n$. Let a permutation be a stochastic distribution of $n$ objects (independently) across the $k$ categories (with each one being equally likely under the null hypothesis). For each such permutation we can go through Chacko's ordering procedure and calculate the test statistic according to equation 5.
+
+The $p$-value in this case is simply the fraction of such permutations that yield a test statistic equal to or greater than the one we originally observed.
