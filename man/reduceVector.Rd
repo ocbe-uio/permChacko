@@ -12,8 +12,8 @@ reduceVector(x, verbosity = 0L)
 \item{verbosity}{a natural number indicating the amount of output to print}
 }
 \value{
-A matrix with two columns: the first one is the reduced vector and
-the second one is its weight
+A list containing the original vector, the reduced vector, their
+weights and the number of reductions performed.
 }
 \description{
 This function implements the ordering process described in
@@ -24,6 +24,7 @@ reduceVector(c(10, 16, 14, 12, 18))
 reduceVector(c(10, 8, 4, 2, 1))
 reduceVector(chacko66_sec3)
 reduceVector(chacko66_sec5)
+reduceVector(chacko66_sec5, verbosity = 1)
 }
 \author{
 Waldir Leoncio
