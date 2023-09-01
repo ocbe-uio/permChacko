@@ -10,7 +10,9 @@
   )
   packageStartupMessage(
     "This is ", paste(pkgname, version), "\n",
-    "To learn more about the package, please run help(\"permChacko-package\"),",
-    " help(\"permChacko\"), and help(\"reduceVector\")."
+    "To learn more about the package, please read the documentation available ",
+    "in the commands below:\n",
+    "help(\"permChacko-package\")\n",
+    "browseVignettes(\"permChacko\")"
   )
 }
