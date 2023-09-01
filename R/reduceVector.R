@@ -9,8 +9,8 @@
 #' Chacko (1963) and Chacko (1966).
 #' @param x a vector of numeric values
 #' @param verbosity a natural number indicating the amount of output to print
-#' @return A matrix with two columns: the first one is the reduced vector and
-#' the second one is its weight
+#' @return A list containing the original vector, the reduced vector, their
+#' weights and the number of reductions performed.
 #' @author Waldir Leoncio
 #' @export
 #' @examples
@@ -18,6 +18,7 @@
 #' reduceVector(c(10, 8, 4, 2, 1))
 #' reduceVector(chacko66_sec3)
 #' reduceVector(chacko66_sec5)
+#' reduceVector(chacko66_sec5, verbosity = 1)
 reduceVector <- function(x, verbosity = 0L) {
   x_t <- cbind("x" = unname(x), "t" = unname(x) ^ 0L)
   reductions <- 0L
