@@ -16,7 +16,8 @@ permChacko(x, n_perm = 1000L, verbosity = 0)
 \value{
 A list containing the test statistic, p-values (analytic, numeric and
 tabular, when available), the number of permutations performed, the original
-data and the reduced data.
+data and the reduced data. Use \code{\link[=names]{names()}} and \code{\link[=str]{str()}} on the output for more
+details.
 }
 \description{
 The Chacko test for order-restriction with permutation test

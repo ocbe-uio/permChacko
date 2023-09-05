@@ -13,7 +13,8 @@ reduceVector(x, verbosity = 0L)
 }
 \value{
 A list containing the original vector, the reduced vector, their
-weights and the number of reductions performed.
+weights and the number of reductions performed. Use \code{\link[=names]{names()}} and \code{\link[=str]{str()}}
+on the output for more details.
 }
 \description{
 This function implements the ordering process described in

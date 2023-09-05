@@ -4,7 +4,8 @@
 #' @param verbosity if \code{TRUE}, prints intermediate messages and output
 #' @return A list containing the test statistic, p-values (analytic, numeric and
 #' tabular, when available), the number of permutations performed, the original
-#' data and the reduced data.
+#' data and the reduced data. Use [names()] and [str()] on the output for more
+#' details.
 #'
 #' @references
 #' Chacko, V. J. (1963). Testing homogeneity against ordered alternatives. The
