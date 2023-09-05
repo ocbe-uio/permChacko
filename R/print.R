@@ -23,26 +23,15 @@ print.chacko_test <- function(x, ...) {
 
 #' @export
 print.reduced_vector <- function(x, details = TRUE, ...) {
-  if (x[["verbose"]] >= 1L) {
-    cat(sprintf("Original vector has been reduced %d times", x[["reductions"]]))
-    cat("\n")
-  } else {
-    cat(
-      sprintf(
-        paste0(
-          "\n",
-          "Original vector: %s\n",
-          "Reduced vector : %s\n",
-          "Final weights  : %s\n",
-          "Original vector has been reduced %d times\n\n",
-          "Run reduceVector() with verbosity > 1) to see the reduction process",
-          "\n"
-        ),
-        paste0(x[["original_vector"]], collapse = "\t"),
-        paste0(x[["reduced_vector"]], collapse = "\t"),
-        paste0(x[["weights"]], collapse = "\t"),
-        x[["reductions"]]
-      )
+  cat(
+    sprintf(
+      paste0(
+        "\n",
+        "Original vector: %s\n",
+        "Reduced vector : %s\n"
+      ),
+      paste0(x[["original_vector"]], collapse = "\t"),
+      paste0(round(x[["reduced_vector"]], 3), collapse = "\t")
     )
-  }
+  )
 }

@@ -38,7 +38,7 @@ reduceVector <- function(x, verbosity = 0L) {
     "weights" = x_t[, "t"],
     "x_t" = x_t,
     "reductions" = reductions,
-    "verbose" = verbosity
+    "verbosity" = verbosity
   )
   class(out) <- "reduced_vector"
   return(out)
