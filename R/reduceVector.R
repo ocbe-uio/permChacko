@@ -10,7 +10,8 @@
 #' @param x a vector of numeric values
 #' @param verbosity a natural number indicating the amount of output to print
 #' @return A list containing the original vector, the reduced vector, their
-#' weights and the number of reductions performed.
+#' weights and the number of reductions performed. Use [names()] and [str()]
+#' on the output for more details.
 #' @author Waldir Leoncio
 #' @export
 #' @examples
