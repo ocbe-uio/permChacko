@@ -18,14 +18,14 @@ orderingProcess <- function(x_t, verbosity = 0) {
 
       if (verbosity >= 2L && i < length(x) - 1L) {
         message("\nNew values and weights")
-        print(cbind("x" = x, "t" = t))
+        print(t(cbind("x" = x, "t" = t)))
       }
     }
     i <- i + 1L
   }
   out <- cbind("x" = x, "t" = t)
   if (verbosity >= 1L) {
-    message("\nFinal vector")
+    message("\n\nFinal vector")
     print(t(out))
   }
   return(out)
