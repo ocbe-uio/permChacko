@@ -5,7 +5,13 @@ permChacko is an R package that implements a modified version of the Chacko (196
 
 ## Installation
 
-You can install the development version of permChacko like so:
+You can install the most stable version of permChacko from [CRAN](https://CRAN.R-project.org) with:
+
+```r
+install.packages("permChacko")
+```
+
+The development version of permChacko is available on GitHub. To install it, please make sure you have the [remotes](https://remotes.r-lib.org/) package installed and run:
 
 ```r
 remotes::install_github("ocbe-uio/permChacko")
