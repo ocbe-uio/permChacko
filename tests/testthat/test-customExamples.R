@@ -32,3 +32,35 @@ test_that("Passing matrices is not possible", {
   expect_error(permChacko(chacko63_tab1), "Input must be a vector")
   expect_error(reduceVector(chacko63_tab1), "Input must be a vector")
 })
+
+test_that("Verbosity works as expected", {
+  expect_message(
+    expect_message(
+      expect_message(
+        permChacko(1, verbosity = 1),
+        "Reducing original vector"
+      ),
+      "Reducing 1000 permutations of original vector"
+    ),
+    "Test statistics"
+  )
+  expect_output(
+    expect_message(
+      expect_message(
+        expect_message(
+          expect_message(
+            expect_message(
+              reduceVector(4:1, verbosity = 2),
+              "New values and weights"
+            ),
+            "Vector needs reduction"
+          ),
+          "Final vector"
+        ),
+        "Vector needs reduction"
+      ),
+      "Final vector"
+    ),
+    "Comparing 3.5 and 1.5. Replacing."
+  )
+})
