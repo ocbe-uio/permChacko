@@ -7,15 +7,21 @@ permChacko is an R package that implements a modified version of the Chacko (196
 
 You can install the development version of permChacko like so:
 
-``` r
+```r
 remotes::install_github("ocbe-uio/permChacko")
+```
+
+This installs the package without vignettes. To install the vignettes, please make sure you have [Pandoc installed](https://pandoc.org/installing.html) and run:
+
+```r
+remotes::install_github("ocbe-uio/permChacko", build_vignettes = TRUE)
 ```
 
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
-``` r
+```r
 library(permChacko)
 permChacko(chacko66_sec3) # example 5 from Chacko (1966)
 ```
