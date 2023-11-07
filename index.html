@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">permChacko</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -45,6 +45,18 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/improving_chacko.html">Improving the Chacko (1966) test</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="news/index.html">Changelog</a>
@@ -76,17 +88,23 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of permChacko like so:</p>
+<p>You can install the most stable version of permChacko from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ocbe-uio/permChacko"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"permChacko"</span><span class="op">)</span></span></code></pre></div>
+<p>The development version of permChacko is available on GitHub. To install it, please make sure you have the <a href="https://remotes.r-lib.org/" class="external-link">remotes</a> package installed and run:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ocbe-uio/permChacko"</span><span class="op">)</span></span></code></pre></div>
+<p>This installs the package without vignettes. To install the vignettes, please make sure you have <a href="https://pandoc.org/installing.html" class="external-link">Pandoc installed</a> and run:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ocbe-uio/permChacko"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ocbe-uio.github.io/permChacko/" class="external-link">permChacko</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/permChacko.html">permChacko</a></span><span class="op">(</span><span class="va">chacko66_3</span><span class="op">)</span> <span class="co"># example 5 from Chacko (1966)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/permChacko.html">permChacko</a></span><span class="op">(</span><span class="va">chacko66_sec3</span><span class="op">)</span> <span class="co"># example 5 from Chacko (1966)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="badges">Badges<a class="anchor" aria-label="anchor" href="#badges"></a>
@@ -101,6 +119,7 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=permChacko" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/ocbe-uio/permChacko/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/ocbe-uio/permChacko/issues" class="external-link">Report a bug</a></li>
 </ul>
