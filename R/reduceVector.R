@@ -27,7 +27,7 @@ reduceVector <- function(x, verbosity = 0L) {
   while (nrow(x_t) > 1L && isMonotoneIncreasing(x_t[, "x"])) {
     if (verbosity >= 1L) {
       message("Vector needs reduction\nInitial vector")
-      print(t(x_t))
+      print(x_t)
     }
     reductions <- reductions + 1L
     x_t <- orderingProcess(x_t, verbosity)
