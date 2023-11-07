@@ -19,3 +19,7 @@ test_that("print.chacko_test() works as expected", {
 test_that("summary.reduced_vector() works as expected", {
   expect_output(summary(reduceVector(rpois(7, 7))), "has been reduced 3 times")
 })
+test_that("Hypothesis suppression works as expected", {
+  expect_output(print(permChacko(4:1)), "p1 == p2 == p3 == p4")
+  expect_output(print(permChacko(6:1)), "p1 == p2 == ... == p5 == p6")
+})
