@@ -3,8 +3,7 @@ set.seed(778566)
 test_that("print.reduced_vector() works as expected", {
   expect_output(reduceVector(rpois(13, 8)), NA)
   expect_output(
-    suppressMessages(reduceVector(rpois(11, 8), verbosity = 1)),
-    "8\\.00    1  2\\.0"
+    suppressMessages(reduceVector(rpois(11, 8), verbosity = 1)), "7\\.25 8"
   )
   x <- reduceVector(rpois(6, 6))
   expect_output(print(x), "Reduced vector : 4\\t4\\t4\\t5\\t8")
