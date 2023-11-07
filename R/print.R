@@ -13,8 +13,8 @@ print.chacko_test <- function(x, ...) {
         "  Numeric p-value         : %f (%d permutations)\n",
         "  Tabular p-value         : %f\n"
       ),
-      paste0("p", seq_along(x$observed_data), collapse = " == "),
-      paste0("p", seq_along(x$observed_data), collapse = " <= "),
+      printHypothesis("p", seq_along(x$observed_data), "=="),
+      printHypothesis("p", seq_along(x$observed_data), "<="),
       x[["statistic"]], p_values[["analytic"]],
       p_values[["numeric"]], x[["n_perm"]], p_values[["tabular"]]
     )
@@ -34,4 +34,17 @@ print.reduced_vector <- function(x, details = TRUE, ...) {
       paste0(round(x[["reduced_vector"]], 3), collapse = "\t")
     )
   )
+}
+
+printHypothesis <- function(x_name, x_indices, operator = "==") {
+  operator <- paste0(" ", operator, " ")
+  if (length(x_indices) < 6) {
+    return(paste0(x_name, x_indices, collapse = operator))
+  } else {
+    first_idx <- 1:2
+    last_idx <- seq(length(x_indices) - 1, length(x_indices))
+    first_x <- paste0(x_name, x_indices[first_idx], collapse = operator)
+    last_x <- paste0(x_name, x_indices[last_idx], collapse = operator)
+    paste0(first_x, operator, "...", operator, last_x)
+  }
 }
