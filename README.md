@@ -1,7 +1,7 @@
 
 # permChacko
 
-permChacko is an R package that implements a modified version of the Chacko (1966) algorithm for order restriction.
+permChacko is an R package that implements a modified version of the [Chacko (1966)](https://www.jstor.org/stable/25051572) algorithm for order restriction.
 
 ## Installation
 
@@ -31,6 +31,12 @@ This is a basic example which shows you how to solve a common problem:
 library(permChacko)
 permChacko(chacko66_sec3) # example 5 from Chacko (1966)
 ```
+
+## References
+
+Chacko, V. J. "Testing homogeneity against ordered alternatives." The Annals of Mathematical Statistics (1963): 945-956. https://www.jstor.org/stable/2238476
+
+Chacko, V. J. (1966). Modified Chi-Square Test for Ordered Alternatives. Sankhyā: The Indian Journal of Statistics, Series B (1960-2002), 28(3/4), 185–190. http://www.jstor.org/stable/25051572
 
 ## Badges
 
