@@ -1,4 +1,3 @@
-
 # permChacko
 
 permChacko is an R package that implements a modified version of the [Chacko (1966)](https://www.jstor.org/stable/25051572) algorithm for order restriction.
@@ -41,7 +40,7 @@ Chacko, V. J. (1966). Modified Chi-Square Test for Ordered Alternatives. SankhyÄ
 ## Badges
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CodeFactor](https://www.codefactor.io/repository/github/ocbe-uio/permChacko/badge)](https://www.codefactor.io/repository/github/ocbe-uio/permChacko)
 [![R build status](https://github.com/ocbe-uio/permChacko/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/permChacko/actions)
 [![Codecov](https://codecov.io/gh/ocbe-uio/permChacko/branch/develop/graph/badge.svg)](https://codecov.io/gh/ocbe-uio/permChacko)
