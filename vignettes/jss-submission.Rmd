@@ -1,5 +1,0 @@
-
-
-# Motivation for this document:
-# For R packages, we encourage inclusion of JSS submissions as vignettes in the package.
-# Source: https://www.jstatsoft.org/authors and https://www.jstatsoft.org/guides/submission
