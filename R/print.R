@@ -10,8 +10,8 @@ print.chacko_test <- function(x, ...) {
         "Test statistic (chisq_bar): %f\n",
         "p-values:\n",
         "  Analytic p-value        : %f\n",
-        "  Numeric p-value (<=)    : %f (%d permutations)\n",
-        "  Numeric p-value (<)     : %f (%d permutations)\n",
+        "  Numeric p-value         : %f (%d permutations)\n",
+        "  Numeric mid-p value     : %f (%d permutations)\n",
         "  Tabular p-value         : %f\n"
       ),
       printHypothesis("p", seq_along(x$observed_data), "=="),
@@ -19,7 +19,7 @@ print.chacko_test <- function(x, ...) {
       x[["statistic"]],
       p_values[["analytic"]],
       p_values[["numeric"]], x[["n_perm"]],
-      p_values[["numeric_alt"]], x[["n_perm"]],
+      p_values[["numeric_mid"]], x[["n_perm"]],
       p_values[["tabular"]]
     )
   )
