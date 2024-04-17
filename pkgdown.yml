@@ -1,7 +1,7 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.0.8
 pkgdown_sha: ~
 articles:
   improving_chacko: improving_chacko.html
-last_built: 2023-11-07T08:54Z
+last_built: 2024-04-17T09:57Z
 

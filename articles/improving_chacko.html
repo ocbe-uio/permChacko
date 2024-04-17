@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Improving the Chacko (1966) test • permChacko</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">permChacko</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -110,7 +110,7 @@ values it replaces, <span class="math inline">\(t_k + t_{k +
 (section 3) and 189 (section 5) of Chacko (1966) in this package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ocbe-uio.github.io/permChacko/" class="external-link">permChacko</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## This is permChacko 0.2.0</span></span>
+<pre><code><span><span class="co">## This is permChacko 1.0.0</span></span>
 <span><span class="co">## To learn more about the package, please read the documentation available in the commands below:</span></span>
 <span><span class="co">## help("permChacko-package")</span></span>
 <span><span class="co">## browseVignettes("permChacko")</span></span></code></pre>
@@ -180,20 +180,22 @@ are calculated using the <code><a href="../reference/permChacko.html">permChacko
 <span><span class="co">## Test statistic (chisq_bar): 2.285714</span></span>
 <span><span class="co">## p-values:</span></span>
 <span><span class="co">##   Analytic p-value        : 0.318907</span></span>
-<span><span class="co">##   Numeric p-value         : 0.168000 (1000 permutations)</span></span>
+<span><span class="co">##   Numeric p-value         : 0.184000 (1000 permutations)</span></span>
+<span><span class="co">##   Numeric mid-p value     : 0.180500 (1000 permutations)</span></span>
 <span><span class="co">##   Tabular p-value         : 0.196052</span></span></code></pre>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/permChacko.html">permChacko</a></span><span class="op">(</span><span class="va">chacko66_sec5</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span>
 <span><span class="co">##         Chacko Test for Order-restriction with Permutation Test</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Null hypothesis           : p1 == p2 == p3 == p4 == p5 == p6 == p7 == p8 == p9 == p10</span></span>
-<span><span class="co">## Alternative hypothesis    : p1 &lt;= p2 &lt;= p3 &lt;= p4 &lt;= p5 &lt;= p6 &lt;= p7 &lt;= p8 &lt;= p9 &lt;= p10</span></span>
+<span><span class="co">## Null hypothesis           : p1 == p2 == ... == p9 == p10</span></span>
+<span><span class="co">## Alternative hypothesis    : p1 &lt;= p2 &lt;= ... &lt;= p9 &lt;= p10</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Test statistic (chisq_bar): 13.500000</span></span>
 <span><span class="co">## p-values:</span></span>
 <span><span class="co">##   Analytic p-value        : 0.035748</span></span>
 <span><span class="co">##   Numeric p-value         : 0.002000 (1000 permutations)</span></span>
+<span><span class="co">##   Numeric mid-p value     : 0.002000 (1000 permutations)</span></span>
 <span><span class="co">##   Tabular p-value         : 0.002294</span></span></code></pre>
 <p>One omission from Chacko (1966) is the event where <span class="math inline">\(m = 1\)</span>. As discussed above, they clearly
 expect that this will happen sometimes, but provide no explanation as to
@@ -249,7 +251,7 @@ equal to or greater than the one we originally observed.</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.8.</p>
 </div>
 
       </footer>
