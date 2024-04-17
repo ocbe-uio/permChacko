@@ -52,8 +52,11 @@ permChacko <- function(x, n_perm = 1000L, verbosity = 0) {
 
   # The p-value is simply the fraction of such permutations that yield a test
   # statistic equal to or greater than the one we originally observed.
-  perm_p_value <- sum(perm_chisq_bar >= chisq_bar) / n_perm
-  perm_mid_p_value <- (sum(perm_chisq_bar > chisq_bar) + 0.5 * sum(perm_chisq_bar == chisq_bar)) / n_perm
+  sum_eq <- sum(perm_chisq_bar == chisq_bar)
+  sum_gt <- sum(perm_chisq_bar > chisq_bar)
+  sum_gte <- sum(perm_chisq_bar >= chisq_bar)
+  perm_p_value <- sum_gte / n_perm
+  perm_mid_p_value <- (sum_gt + 0.5 * sum_eq) / n_perm
   m <- nrow(x_t)
   anal_p_value <- ifelse(
     test = m > 1L,

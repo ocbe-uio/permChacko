@@ -1,7 +1,7 @@
 Package: permChacko
 Title: Chacko Test for Order-Restriction with Permutation
-Version: 0.2.0.9001
-Date: 2023-11-07
+Version: 1.0.0
+Date: 2024-04-17
 Authors@R:
     c(
         person(
