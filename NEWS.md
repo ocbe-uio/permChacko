@@ -1,4 +1,4 @@
-# permChacko (development version)
+# permChacko 1.0.0
 
 * Improved printing of hypothesis ([issue #11](https://github.com/ocbe-uio/permChacko/issues/11)).
 * Added calculation of mid-P values ([issue #13](https://github.com/ocbe-uio/permChacko/issues/13)).
