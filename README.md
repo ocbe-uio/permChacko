@@ -1,7 +1,6 @@
-
 # permChacko
 
-permChacko is an R package that implements a modified version of the Chacko (1966) algorithm for order restriction.
+permChacko is an R package that implements a modified version of the [Chacko (1966)](https://www.jstor.org/stable/25051572) algorithm for order restriction.
 
 ## Installation
 
@@ -32,10 +31,16 @@ library(permChacko)
 permChacko(chacko66_sec3) # example 5 from Chacko (1966)
 ```
 
+## References
+
+Chacko, V. J. "Testing homogeneity against ordered alternatives." The Annals of Mathematical Statistics (1963): 945-956. https://www.jstor.org/stable/2238476
+
+Chacko, V. J. (1966). Modified Chi-Square Test for Ordered Alternatives. Sankhyā: The Indian Journal of Statistics, Series B (1960-2002), 28(3/4), 185–190. http://www.jstor.org/stable/25051572
+
 ## Badges
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CodeFactor](https://www.codefactor.io/repository/github/ocbe-uio/permChacko/badge)](https://www.codefactor.io/repository/github/ocbe-uio/permChacko)
 [![R build status](https://github.com/ocbe-uio/permChacko/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/permChacko/actions)
 [![Codecov](https://codecov.io/gh/ocbe-uio/permChacko/branch/develop/graph/badge.svg)](https://codecov.io/gh/ocbe-uio/permChacko)

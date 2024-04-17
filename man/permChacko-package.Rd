@@ -3,7 +3,6 @@
 \docType{package}
 \name{permChacko-package}
 \alias{permChacko-package}
-\alias{_PACKAGE}
 \title{permChacko: Chacko Test for Order-Restriction with Permutation}
 \description{
 Implements an extension of the Chacko chi-square test for ordered vectors (Chacko, 1966, \url{https://www.jstor.org/stable/25051572}). Our extension brings the Chacko test to the computer age by implementing a permutation test to offer a numeric estimate of the p-value, which is particularly useful when the analytic solution is not available.

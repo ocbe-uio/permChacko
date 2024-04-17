@@ -1,3 +1,8 @@
+# permChacko 1.0.0
+
+* Improved printing of hypothesis ([issue #11](https://github.com/ocbe-uio/permChacko/issues/11)).
+* Added calculation of mid-P values ([issue #13](https://github.com/ocbe-uio/permChacko/issues/13)).
+
 # permChacko 0.2.0
 
 * Replaced `verbose` with `verbosity` in functions to allow for more control over the output ([issue #3](https://github.com/ocbe-uio/permChacko/issues/3)).
