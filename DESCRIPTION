@@ -1,6 +1,6 @@
 Package: permChacko
 Title: Chacko Test for Order-Restriction with Permutation
-Version: 1.0.0.9000
+Version: 1.0.0.9001
 Date: 2024-04-17
 Authors@R:
     c(
@@ -25,7 +25,8 @@ Description: Implements an extension of the Chacko chi-square test for
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
+Imports: methods
 Suggests:
     knitr,
     rmarkdown,
