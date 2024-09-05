@@ -1,15 +1,8 @@
-chackoStatistic <- function(x_t, n, k, fast = FALSE) {
-  # TODO: supersede fast = FALSE with fast = TRUE
-  x_bar <- x_t[, "x"]
-  t <- x_t[, "t"]
-  m <- length(unique(x_bar)) # TODO: Check what Chacko means by "unique"
-  power_sum <- 0
-  for (j in seq_len(m)) {
-    power_sum <- power_sum + t[[j]] * (x_bar[[j]] - n / k) ^ 2
-  }
-  if (fast) {
-    x_t_unique <- x_t[!duplicated(x_t[, "x"]), , drop = FALSE] # TODO: Check what Chacko means by "unique"
-    return(k / n * sum(x_t_unique[, "t"] * (x_t_unique[, "x"] - n / k) ^ 2))
-  }
-  return(k / n * power_sum)
+chackoStatistic <- function(x_t, n, k, uniqueness_method = 1) {
+  m <- length(unique(x_t[, "x"])) # TODO: check what Chacko really means by m
+  x_t_unique <- switch(uniqueness_method,
+    x_t[seq_len(m), , drop = FALSE],  # current implementation
+    x_t[!duplicated(x_t[, "x"]), , drop = FALSE], # new idea (hidden)
+  )
+  k / n * sum(x_t_unique[, "t"] * (x_t_unique[, "x"] - n / k) ^ 2)
 }
