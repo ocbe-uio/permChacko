@@ -1,7 +1,4 @@
 #' @keywords internal
 #' @aliases permChacko-package
+#' @importFrom methods is
 "_PACKAGE"
-
-## usethis namespace: start
-## usethis namespace: end
-NULL
