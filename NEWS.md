@@ -1,4 +1,4 @@
-# permChacko (development version)
+# permChacko 1.0.1
 
 * Improved validation
 * Optimized `chackoStatistic()`
