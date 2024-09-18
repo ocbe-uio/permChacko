@@ -1,5 +1,5 @@
-chackoStatistic <- function(x_t, n, k, uniqueness_method = 1) {
-  m <- length(unique(x_t[, "x"])) # TODO: check what Chacko really means by m
+chackoStatistic <- function(x_t, n, k, uniqueness_method = 2) {
+  m <- length(x_t[, "x"])
   x_t_unique <- switch(uniqueness_method,
     x_t[seq_len(m), , drop = FALSE],  # current implementation
     x_t[!duplicated(x_t[, "x"]), , drop = FALSE], # new idea (hidden)

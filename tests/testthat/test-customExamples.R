@@ -64,3 +64,12 @@ test_that("Verbosity works as expected", {
     "Comparing 3.5 and 1.5. Replacing."
   )
 })
+
+test_that("m is properly calculated on reduced vectors with duplicates", {
+  x <- c(12, 12, 16, 17, 13)
+  y <- reduceVector(x)
+  expect_equal(chackoStatistic(y$x_t, sum(x), length(x)), 2 / 3) # equiv to m=3
+  expect_equal(
+    chackoStatistic(y$x_t, sum(x), length(x), 1L), .95238095
+  ) # equiv to m = 2
+})
