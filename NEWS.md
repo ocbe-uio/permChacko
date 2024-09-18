@@ -1,3 +1,9 @@
+# permChacko 1.0.1
+
+* Improved validation
+* Optimized `chackoStatistic()`
+* Revised calculation of unique values in `chackoStatistic()` ([issue #16](https://github.com/ocbe-uio/permChacko/issues/16)).
+
 # permChacko 1.0.0
 
 * Improved printing of hypothesis ([issue #11](https://github.com/ocbe-uio/permChacko/issues/11)).
