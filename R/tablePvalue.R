@@ -5,5 +5,5 @@ tablePvalue <- function(k, m, chisq_bar) {
     FUN.VALUE = vector("double", 1L)
   )
   table_p <- chacko63_tab1[seq(2, k), k - 2]
-  return(sum(table_chisq * table_p))
+  sum(table_chisq * table_p)
 }

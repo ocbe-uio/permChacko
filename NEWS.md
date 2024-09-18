@@ -1,5 +1,7 @@
 # permChacko (development version)
 
+* Fixed code smells
+
 # permChacko 1.0.1
 
 * Improved validation
